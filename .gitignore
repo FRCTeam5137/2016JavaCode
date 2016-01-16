@@ -1,0 +1,9 @@
+/bin/
+*.java~
+.classpath~
+.project~
+*.txt~
+*.properties~
+*.xml~
+*.class
+
