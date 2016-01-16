@@ -6,6 +6,9 @@ package org.usfirst.frc.team5137.robot;
  * floating around.
  */
 public class RobotMap {
+	public static SpeedController driveBaseRightMotor;
+	public static SpeedController driveBaseLeftMotor;
+	public static RobotDrive driveBaseChassis;
     // For example to map the left and right motors, you could define the
     // following variables to use with your drivetrain subsystem.
     // public static int leftMotor = 1;
