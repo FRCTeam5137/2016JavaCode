@@ -9,6 +9,8 @@ import org.usfirst.frc.team5137.robot.commands.ExampleCommand;
 import org.usfirst.frc.team5137.robot.subsystems.ExampleSubsystem;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
+import org.usfirst.frc.team5137.robot.subsystems.*;
+import org.usfirst.frc.team5137.robot.commands.*;
 
 /**
  * The VM is configured to automatically run this class, and to call the
@@ -21,6 +23,7 @@ public class Robot extends IterativeRobot {
 
 	public static final ExampleSubsystem exampleSubsystem = new ExampleSubsystem();
 	public static OI oi;
+	public static ScissorLift scissorLift;
 
     Command autonomousCommand;
     SendableChooser chooser;
@@ -31,6 +34,7 @@ public class Robot extends IterativeRobot {
      */
     public void robotInit() {
 		oi = new OI();
+		scissorLift = new ScissorLift();
         chooser = new SendableChooser();
         chooser.addDefault("Default Auto", new ExampleCommand());
 //        chooser.addObject("My Auto", new MyAutoCommand());
