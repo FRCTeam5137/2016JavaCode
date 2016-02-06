@@ -3,8 +3,7 @@ package org.usfirst.frc.team5137.robot;
 import edu.wpi.first.wpilibj.buttons.Button;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
 
-import org.usfirst.frc.team5137.robot.commands.LowerScissorLift;
-import org.usfirst.frc.team5137.robot.commands.RaiseScissorLift;
+import org.usfirst.frc.team5137.robot.commands.*;
 
 import edu.wpi.first.wpilibj.*;
 
@@ -40,15 +39,23 @@ public class OI {
     // until it is finished as determined by it's isFinished method.
     // button.whenReleased(new ExampleCommand());
 	public Joystick driveStick;
+	public Joystick driveStick2;
 	public JoystickButton raiseScissorLift;
 	public JoystickButton lowerScissorLift;
+	public JoystickButton intake;
+	public JoystickButton shoot;
 	
 	public OI() {
 		driveStick = new Joystick(0);
+		driveStick2 = new Joystick(1);
 		raiseScissorLift = new JoystickButton(driveStick, 6);
 		raiseScissorLift.whileHeld(new RaiseScissorLift());
 		lowerScissorLift = new JoystickButton(driveStick, 5);
 		lowerScissorLift.whileHeld(new LowerScissorLift());
+		intake = new JoystickButton(driveStick2, 1);
+		intake.whileHeld(new Intake());
+		shoot = new JoystickButton(driveStick, 1);
+		shoot.whileHeld(new Shoot());
 		}
 	
 	public Joystick getDriveStick() {
