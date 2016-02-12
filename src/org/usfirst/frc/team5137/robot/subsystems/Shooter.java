@@ -10,11 +10,8 @@ import edu.wpi.first.wpilibj.*;
  *
  */
 public class Shooter extends Subsystem {
-    Relay shooterKicker = RobotMap.shooterKicker;
-	SpeedController shooterMotorLeft = RobotMap.shooterMotorLeft;
+    SpeedController shooterMotorLeft = RobotMap.shooterMotorLeft;
     SpeedController shooterMotorRight = RobotMap.shooterMotorRight;
-    SpeedController shooterMotorAngle = RobotMap.shooterMotorAngle;
-    public static boolean isShooterFinished = false;
     // Put methods for controlling this subsystem
     // here. Call these from Commands.
     public void intake() {
@@ -25,20 +22,11 @@ public class Shooter extends Subsystem {
     public void shoot() {
     	shooterMotorLeft.set(-1);
     	shooterMotorRight.set(1);
-    	Timer.delay(2);
-    	shooterKicker.set(Relay.Value.kForward);
-    	Timer.delay(1);
-    	shooterKicker.set(Relay.Value.kOff);
-    	isShooterFinished = true;
-    	
     }
    
     public void stop() {
     	shooterMotorLeft.set(0);
     	shooterMotorRight.set(0);
-    	shooterKicker.set(Relay.Value.kReverse);
-    	Timer.delay(1);
-    	shooterKicker.set(Relay.Value.kOff);
     }
     
     public void initDefaultCommand() {
