@@ -41,6 +41,18 @@ public class Shooter extends Subsystem {
     	shooterKicker.set(Relay.Value.kOff);
     }
     
+    public void raise() {
+    	shooterMotorAngle.set(0.25);
+    }
+    
+    public void lower() {
+    	shooterMotorAngle.set(-0.25);
+    }
+    
+    public void stopAngle() {
+    	shooterMotorAngle.set(0);
+    }
+    
     public void initDefaultCommand() {
         // Set the default command for a subsystem here.
     	
