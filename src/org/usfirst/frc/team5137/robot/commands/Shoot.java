@@ -2,6 +2,7 @@ package org.usfirst.frc.team5137.robot.commands;
 
 import edu.wpi.first.wpilibj.command.Command;
 import org.usfirst.frc.team5137.robot.*;
+import org.usfirst.frc.team5137.robot.subsystems.Shooter;
 /**
  *
  */
@@ -24,7 +25,13 @@ public class Shoot extends Command {
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return false;
+        if (Shooter.isShooterFinished) {
+        	return true;
+        }
+        
+        else {
+        	return false;
+        }
     }
 
     // Called once after isFinished returns true
