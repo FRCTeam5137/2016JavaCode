@@ -27,7 +27,7 @@ public class Shooter extends Subsystem {
     	shooterMotorRight.set(1);
     	Timer.delay(2);
     	shooterKicker.set(Relay.Value.kForward);
-    	Timer.delay(1);
+    	Timer.delay(0.5);
     	shooterKicker.set(Relay.Value.kOff);
     	isShooterFinished = true;
     	
@@ -37,7 +37,7 @@ public class Shooter extends Subsystem {
     	shooterMotorLeft.set(0);
     	shooterMotorRight.set(0);
     	shooterKicker.set(Relay.Value.kReverse);
-    	Timer.delay(1);
+    	Timer.delay(0.5);
     	shooterKicker.set(Relay.Value.kOff);
     }
     
