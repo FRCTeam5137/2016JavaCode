@@ -9,19 +9,24 @@ import edu.wpi.first.wpilibj.*;
  */
 public class ScissorLift extends Subsystem {
     
-	Relay scissorLiftActuator = RobotMap.scissorLiftActuator;
+	SpeedController scissorLiftActuator = RobotMap.scissorLiftActuator;
+	SpeedController scissorLiftWinch = RobotMap.scissorLiftWinch;
     // Put methods for controlling this subsystem
     // here. Call these from Commands.
 	public void raise() {
-		scissorLiftActuator.set(Relay.Value.kReverse);
+		scissorLiftActuator.set(-1);
+		scissorLiftWinch.set(1);
+		
 	}
 	
 	public void lower() {
-		scissorLiftActuator.set(Relay.Value.kForward);
+		scissorLiftActuator.set(1);
+		scissorLiftWinch.set(-1);
 	}
 	
 	public void stop() {
-		scissorLiftActuator.set(Relay.Value.kOff);
+		scissorLiftActuator.set(0);
+		scissorLiftWinch.set(0);
 	}
 
     public void initDefaultCommand() {
