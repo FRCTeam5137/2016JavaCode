@@ -40,12 +40,14 @@ public class OI {
     // button.whenReleased(new ExampleCommand());
 	public Joystick driveStick;
 	public Joystick driveStick2;
+	public Joystick launchpad;
 	public JoystickButton raiseScissorLift;
 	public JoystickButton lowerScissorLift;
 	public JoystickButton intake;
 	public JoystickButton shoot;
 	public JoystickButton raiseShooter;
 	public JoystickButton lowerShooter;
+	public JoystickButton pullUp;
 	
 	public OI() {
 		driveStick = new Joystick(0);
@@ -62,6 +64,8 @@ public class OI {
 		raiseShooter.whileHeld(new RaiseShooter());
 		lowerShooter = new JoystickButton(driveStick2, 2);
 		lowerShooter.whileHeld(new LowerShooter());
+		pullUp = new JoystickButton(launchpad, 13);
+		pullUp.whileHeld(new PullUp());
 		}
 	
 	public Joystick getDriveStick() {
