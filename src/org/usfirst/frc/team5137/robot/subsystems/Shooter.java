@@ -18,13 +18,13 @@ public class Shooter extends Subsystem {
     // Put methods for controlling this subsystem
     // here. Call these from Commands.
     public void intake() {
-    	shooterMotorLeft.set(1);
-    	shooterMotorRight.set(-1);
+    	shooterMotorLeft.set(0.5);
+    	shooterMotorRight.set(-0.5);
     }
 
     public void shoot() {
-    	shooterMotorLeft.set(-1);
-    	shooterMotorRight.set(1);
+    	shooterMotorLeft.set(-0.6);
+    	shooterMotorRight.set(0.6);
     	Timer.delay(2);
     	shooterKicker.set(Relay.Value.kForward);
     	Timer.delay(0.5);
