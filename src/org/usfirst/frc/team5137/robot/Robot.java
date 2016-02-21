@@ -42,6 +42,7 @@ public class Robot extends IterativeRobot {
     public static ScissorLift scissorLift;
     public static Shooter shooter;
     public static Winch winch;
+    public static Aiming aiming;
     public static I2C testI2C;
     public static byte[] testByte;
     //public static String testString;
@@ -58,6 +59,7 @@ public class Robot extends IterativeRobot {
         scissorLift = new ScissorLift();
         shooter = new Shooter();
         winch = new Winch();
+        aiming = new Aiming();
         testI2C = new I2C(Port.kMXP, 20);
         testByte = new byte[7];
         testByte[0] = 0x7f;

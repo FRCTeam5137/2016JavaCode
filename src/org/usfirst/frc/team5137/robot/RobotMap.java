@@ -34,6 +34,9 @@ public class RobotMap {
     public static SpeedController shooterMotorAngle;
     public static SpeedController scissorLiftActuator;
     public static SpeedController scissorLiftWinch;
+    public static DigitalInput scissorLiftExtendedLimit;
+    public static DigitalInput scissorLiftRetractedLimit;
+    public static Encoder shooterAngleEnc;
 
     
     public static void init() {
@@ -59,8 +62,12 @@ public class RobotMap {
         shooterMotorLeft = new Spark(2);
         shooterMotorRight = new Spark(3);
         shooterMotorAngle = new Spark(4);
-        scissorLiftActuator = new Spark(5);
-        scissorLiftWinch = new Spark(6);
+        scissorLiftActuator = new Spark(6);
+        scissorLiftWinch = new Spark(5);
+        scissorLiftExtendedLimit = new DigitalInput(0);
+        scissorLiftRetractedLimit = new DigitalInput(1);
+        shooterAngleEnc = new Encoder(2, 3, false, Encoder.EncodingType.k4X);
+        
         
     }
 }

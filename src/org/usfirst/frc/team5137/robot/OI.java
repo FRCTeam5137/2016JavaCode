@@ -47,11 +47,14 @@ public class OI {
 	public JoystickButton shoot;
 	public JoystickButton raiseShooter;
 	public JoystickButton lowerShooter;
+	public JoystickButton rollupWinch;
+	public JoystickButton unrollWinch;
 	public JoystickButton pullUp;
 	
 	public OI() {
 		driveStick = new Joystick(0);
 		driveStick2 = new Joystick(1);
+		launchpad = new Joystick(2);
 		raiseScissorLift = new JoystickButton(driveStick, 6);
 		raiseScissorLift.whileHeld(new RaiseScissorLift());
 		lowerScissorLift = new JoystickButton(driveStick, 5);
@@ -59,11 +62,15 @@ public class OI {
 		intake = new JoystickButton(driveStick2, 1);
 		intake.whileHeld(new Intake());
 		shoot = new JoystickButton(driveStick, 1);
-		shoot.whenPressed(new Shoot());
+		shoot.whenPressed(new AimAndShoot());
 		raiseShooter = new JoystickButton(driveStick2, 3);
 		raiseShooter.whileHeld(new RaiseShooter());
 		lowerShooter = new JoystickButton(driveStick2, 2);
 		lowerShooter.whileHeld(new LowerShooter());
+		rollupWinch = new JoystickButton(launchpad, 8);
+		rollupWinch.whileHeld(new RollupWinch());
+		unrollWinch = new JoystickButton(launchpad, 9);
+		unrollWinch.whileHeld(new UnrollWinch());
 		pullUp = new JoystickButton(launchpad, 13);
 		pullUp.whileHeld(new PullUp());
 		}
