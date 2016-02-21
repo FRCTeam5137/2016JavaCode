@@ -21,8 +21,8 @@ public class Aiming extends Subsystem {
 	                     // this gives the relative coordinates of the goal, x being horizontal distance
 	double ygl = 2.007;  // like above, but with y being vertical height to the goal. 
 	                     // The launcher, at 30, is 18 inches. Center of goal is 97 inches tall.
-	double centerX = 320;
-	double centerY = 240;
+	double centerX = 240;
+	double centerY = 320;
 	double shooterAngle;
 	double currentAngle;
 	public boolean isXCentered = false;
