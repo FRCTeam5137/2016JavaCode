@@ -48,24 +48,32 @@ public class OI {
 	public JoystickButton raiseShooter;
 	public JoystickButton lowerShooter;
 	public JoystickButton pullUp;
+	public JoystickButton raiseTomahawk;
+	public JoystickButton lowerTomahawk;
 	
 	public OI() {
 		driveStick = new Joystick(0);
 		driveStick2 = new Joystick(1);
 		raiseScissorLift = new JoystickButton(driveStick, 6);
 		raiseScissorLift.whileHeld(new RaiseScissorLift());
-		lowerScissorLift = new JoystickButton(driveStick, 5);
+		lowerScissorLift = new JoystickButton(driveStick, 4);
 		lowerScissorLift.whileHeld(new LowerScissorLift());
 		intake = new JoystickButton(driveStick2, 1);
 		intake.whileHeld(new Intake());
 		shoot = new JoystickButton(driveStick, 1);
 		shoot.whenPressed(new Shoot());
-		raiseShooter = new JoystickButton(driveStick2, 3);
+		raiseShooter = new JoystickButton(driveStick, 5);
 		raiseShooter.whileHeld(new RaiseShooter());
-		lowerShooter = new JoystickButton(driveStick2, 2);
+		lowerShooter = new JoystickButton(driveStick, 3);
 		lowerShooter.whileHeld(new LowerShooter());
 		pullUp = new JoystickButton(launchpad, 13);
 		pullUp.whileHeld(new PullUp());
+		raiseTomahawk = new JoystickButton(driveStick2, 3);
+		raiseTomahawk.whileHeld(new RaiseTomahawk());
+		lowerTomahawk = new JoystickButton(driveStick2, 2);
+		lowerTomahawk.whileHeld(new LowerTomahawk());
+		
+		
 		}
 	
 	public Joystick getDriveStick() {
