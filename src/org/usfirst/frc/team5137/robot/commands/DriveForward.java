@@ -5,14 +5,11 @@ import edu.wpi.first.wpilibj.command.CommandGroup;
 /**
  *
  */
-public class AimAndShoot extends CommandGroup {
+public class DriveForward extends CommandGroup {
     
-    public  AimAndShoot() {
-    	addSequential(new CenterHorizontal());
-    	addSequential(new CenterVertical());
-    	//addSequential(new GetLaunchTheta());
-    	//addSequential(new SetYForLaunch());
-    	//addSequential(new Shoot());
+    public  DriveForward() {
+    	addSequential(new SetShooterAngle(10));
+    	addSequential(new DriveAuto(-0.75, 0, 4));
         // Add Commands here:
         // e.g. addSequential(new Command1());
         //      addSequential(new Command2());

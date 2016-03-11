@@ -41,18 +41,22 @@ public class DriveBase extends Subsystem {
     }
     
     public void pivotLeft() {
-    	leftMotor.set(-0.5);
-    	rightMotor.set(0.5);
+    	leftMotor.set(0.3);
+    	//rightMotor.set(-0.5);
     }
     
     public void pivotRight() {
-    	leftMotor.set(0.5);
-    	rightMotor.set(-0.5);
+    	//leftMotor.set(-0.5);
+    	rightMotor.set(0.3);
     }
     
     public void stopPivot() {
     	leftMotor.set(0);
     	rightMotor.set(0);
+    }
+    
+    public void autoDrive(double speed, double turn) {
+    	chassis.arcadeDrive(speed, turn);
     }
     
     public void initDefaultCommand() {

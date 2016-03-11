@@ -2,6 +2,7 @@ package org.usfirst.frc.team5137.robot;
 
 import edu.wpi.first.wpilibj.buttons.Button;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 import org.usfirst.frc.team5137.robot.commands.*;
 
@@ -45,11 +46,16 @@ public class OI {
 	public JoystickButton lowerScissorLift;
 	public JoystickButton intake;
 	public JoystickButton shoot;
+	public JoystickButton lowGoalShoot;
+	public JoystickButton setYForDriving;
+	public JoystickButton setYForIntake;
 	public JoystickButton raiseShooter;
 	public JoystickButton lowerShooter;
 	public JoystickButton rollupWinch;
 	public JoystickButton unrollWinch;
 	public JoystickButton pullUp;
+	public JoystickButton kickerForward;
+	public JoystickButton kickerReverse;
 	
 	public OI() {
 		driveStick = new Joystick(0);
@@ -57,26 +63,42 @@ public class OI {
 		launchpad = new Joystick(2);
 		raiseScissorLift = new JoystickButton(driveStick, 6);
 		raiseScissorLift.whileHeld(new RaiseScissorLift());
-		lowerScissorLift = new JoystickButton(driveStick, 5);
+		lowerScissorLift = new JoystickButton(driveStick, 4);
 		lowerScissorLift.whileHeld(new LowerScissorLift());
 		intake = new JoystickButton(driveStick2, 1);
 		intake.whileHeld(new Intake());
 		shoot = new JoystickButton(driveStick, 1);
-		shoot.whenPressed(new AimAndShoot());
+		shoot.whenPressed(new Shoot());
+		lowGoalShoot = new JoystickButton(driveStick, 2);
+		lowGoalShoot.whileHeld(new LowGoalShoot());
+		setYForDriving = new JoystickButton(driveStick, 5);
+		setYForDriving.whenPressed(new SetShooterDriving());
+		setYForIntake = new JoystickButton(driveStick, 3);
+		setYForIntake.whenPressed(new SetShooterIntake());
 		raiseShooter = new JoystickButton(driveStick2, 3);
 		raiseShooter.whileHeld(new RaiseShooter());
 		lowerShooter = new JoystickButton(driveStick2, 2);
 		lowerShooter.whileHeld(new LowerShooter());
-		rollupWinch = new JoystickButton(launchpad, 8);
+		rollupWinch = new JoystickButton(driveStick2, 5);
 		rollupWinch.whileHeld(new RollupWinch());
-		unrollWinch = new JoystickButton(launchpad, 9);
+		unrollWinch = new JoystickButton(driveStick2, 8);
 		unrollWinch.whileHeld(new UnrollWinch());
-		pullUp = new JoystickButton(launchpad, 13);
+		pullUp = new JoystickButton(driveStick2, 4);
 		pullUp.whileHeld(new PullUp());
+		kickerForward = new JoystickButton(driveStick2, 11);
+		kickerForward.whileHeld(new KickerForward());
+		kickerReverse = new JoystickButton(driveStick2, 10);
+		kickerReverse.whileHeld(new KickerReverse());
+		
 		}
 	
 	public Joystick getDriveStick() {
 		return driveStick;
 	}
+	
+	public Joystick getDriveStick2() {
+		return driveStick2;
+	}
+	
 }
 

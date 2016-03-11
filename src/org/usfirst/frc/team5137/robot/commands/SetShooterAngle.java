@@ -9,9 +9,14 @@ import edu.wpi.first.wpilibj.command.Command;
  */
 public class SetShooterAngle extends Command {
 
+	private double shooterAngle;
+	double currentAngle;
+	
     public SetShooterAngle(double angle) {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
+    	requires(Robot.aiming);
+    	shooterAngle = angle;
     }
 
     // Called just before this Command runs the first time
@@ -20,13 +25,20 @@ public class SetShooterAngle extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	Robot.shooter.getAngle();
+    	Robot.aiming.setY(shooterAngle);
     	
     }
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-    	return false;
+    	currentAngle = Robot.shooter.getAngle();
+    	if (currentAngle <= (shooterAngle + 1) && (currentAngle >= shooterAngle - 1)) {
+    		return true;
+    	}
+    	
+    	else {
+    		return false;
+    	}
     }
 
     // Called once after isFinished returns true

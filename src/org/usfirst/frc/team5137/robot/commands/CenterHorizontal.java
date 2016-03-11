@@ -7,9 +7,9 @@ import edu.wpi.first.wpilibj.command.Command;
 /**
  *
  */
-public class Center extends Command {
+public class CenterHorizontal extends Command {
 
-    public Center() {
+    public CenterHorizontal() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
     	requires(Robot.aiming);
@@ -22,12 +22,11 @@ public class Center extends Command {
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
     	Robot.aiming.centerHorizontal();
-    	Robot.aiming.centerVertical();
     }
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        if (Robot.aiming.isXCentered && Robot.aiming.isYCentered) {
+        if (Robot.aiming.isXCentered) {
         	return true;
         }
         
