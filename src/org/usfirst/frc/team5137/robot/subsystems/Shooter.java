@@ -62,7 +62,7 @@ public class Shooter extends Subsystem {
     }
     
     public void raise() {
-    	shooterMotorAngle.set(-1.0);
+    	shooterMotorAngle.set(-0.7);
     }
     
     public void lower() {

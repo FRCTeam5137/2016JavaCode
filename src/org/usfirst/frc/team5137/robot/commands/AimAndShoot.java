@@ -9,10 +9,11 @@ public class AimAndShoot extends CommandGroup {
     
     public  AimAndShoot() {
     	addSequential(new CenterHorizontal());
-    	addSequential(new CenterVertical());
+    	addSequential(new SetShooterDriving());
+    	//addSequential(new CenterVertical());
     	//addSequential(new GetLaunchTheta());
     	//addSequential(new SetYForLaunch());
-    	//addSequential(new Shoot());
+    	addSequential(new Shoot());
         // Add Commands here:
         // e.g. addSequential(new Command1());
         //      addSequential(new Command2());

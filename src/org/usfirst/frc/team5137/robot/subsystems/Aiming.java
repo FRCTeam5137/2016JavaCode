@@ -19,14 +19,14 @@ public class Aiming extends Subsystem {
     // here. Call these from Commands.
 	
 	NetworkTable aimingTable = NetworkTable.getTable("SmartDashboard");
-	double vel  = 10;    // the speed of the ejected ball. This will need to be tuned.
+	double vel  = 14;    // the speed of the ejected ball. This will need to be tuned.
 	double grav = 9.81;  // the gravitational constant 
 	double xgl;          // where the ball exits the launcher is (0, 0), 
 	                     // this gives the relative coordinates of the goal, x being horizontal distance
 	double ygl = 2.007;  // like above, but with y being vertical height to the goal. 
 	                     // The launcher, at 30, is 18 inches. Center of goal is 97 inches tall.
-	double centerX = 240;
-	double centerY = 320;
+	double centerX = 160;
+	double centerY = 120;
 	double shooterAngle;
 	double currentAngle;
 	public boolean isXCentered = false;
@@ -44,6 +44,7 @@ public class Aiming extends Subsystem {
 		
 	public void centerHorizontal() {
 		//double[] defaultValue = new double[0];
+		isXCentered = false;
 		xCoord = aimingTable.getNumber("COG_X", 0);
 		//if (xCoord[0] > centerX + 10) {
 		if (xCoord == 0) {
@@ -52,12 +53,12 @@ public class Aiming extends Subsystem {
 		}
 		
 		else if (xCoord > centerX + 2) {
-			Robot.driveBase.pivotLeft();
+			Robot.driveBase.pivotRight();
 			Timer.delay(0.1);
 		}
 		
 		else if (xCoord < centerX - 2) {
-			Robot.driveBase.pivotRight();
+			Robot.driveBase.pivotLeft();
 			Timer.delay(0.1);
 		}
 		
@@ -70,6 +71,7 @@ public class Aiming extends Subsystem {
 	
 	public void centerVertical() {
 		//yCoord = aimingTable.getNumberArray("COG_Y", defaultValue);
+		isYCentered = false;
 		yCoord = aimingTable.getNumber("COG_Y", 0);
 		if (yCoord == 0) {
 			shooterMotorAngle.set(0);
@@ -77,12 +79,12 @@ public class Aiming extends Subsystem {
 		}
 		
 		else if (yCoord > centerY + 10) {
-			shooterMotorAngle.set(0.5);
+			shooterMotorAngle.set(-0.5);
 			Timer.delay(0.1);
 		}
 		
 		else if (yCoord < centerY - 10) {
-			shooterMotorAngle.set(-0.5);
+			shooterMotorAngle.set(0.5);
 			Timer.delay(0.1);
 		}
 		

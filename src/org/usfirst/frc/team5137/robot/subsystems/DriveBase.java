@@ -47,7 +47,7 @@ public class DriveBase extends Subsystem {
     
     public void pivotRight() {
     	//leftMotor.set(-0.5);
-    	rightMotor.set(0.3);
+    	leftMotor.set(-0.3);
     }
     
     public void stopPivot() {

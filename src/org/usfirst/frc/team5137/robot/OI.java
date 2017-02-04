@@ -56,6 +56,8 @@ public class OI {
 	public JoystickButton pullUp;
 	public JoystickButton kickerForward;
 	public JoystickButton kickerReverse;
+	public JoystickButton aimAndShoot;
+
 	
 	public OI() {
 		driveStick = new Joystick(0);
@@ -89,6 +91,8 @@ public class OI {
 		kickerForward.whileHeld(new KickerForward());
 		kickerReverse = new JoystickButton(driveStick2, 10);
 		kickerReverse.whileHeld(new KickerReverse());
+		aimAndShoot = new JoystickButton(driveStick, 11);
+		aimAndShoot.whenPressed(new AimAndShoot());
 		
 		}
 	
